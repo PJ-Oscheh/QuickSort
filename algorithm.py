@@ -7,41 +7,42 @@ def quickSort(a: list, l: int, r: int):
     Should output the array in nondecreasing (increasing???) order
     """
     if (l < r):
-        s = hoarePartition(a[l:r+1])
+        s = hoarePartition(a,l,r)
         quickSort(a, l, s-1)
         quickSort(a, s+1, r)
     print(a)
 
-def hoarePartition(subA: list): 
+def hoarePartition(a: list, l:int, r:int): 
     """
     Partitions the sublist.
     - subA: sub-list of the overall list. l = 0, r = n-1 of sublist.
     """
 
     # Get the left-most item in the list
-    p = subA[0]
+    p = a[l]
 
-    i = 0 # Left-most element in the sublist
-    j = len(subA)-1 # Right-most element in the sublist
+    i = l+1 # Left-most element in the sublistlen(a)-1
+    j = r # Right-most element in the sublist
+    _swap(a,i,j)
 
     # while not x == repeat ... until x
     while not (i >= j):
-        while not (subA[i] >= p):
+        while not (a[i] >= p):
             i += 1
-        while not (subA[j] <= p):
+        while not (a[j] <= p):
             j -= 1
-        _swap(subA, i, j)
-        print(f"hoare: {subA}")
+        _swap(a, i, j)
+        print(f"hoare: {a}")
     
-    _swap(subA, i, j)
-    _swap(subA, 0, j)
+    _swap(a, i, j)
+    _swap(a, l, j)
     return j
 
-def _swap(subA: list, idx1: int, idx2: int):
-    tmp = subA[idx1]
-    subA[idx1] = subA[idx2]
-    subA[idx2] = tmp
+def _swap(a: list, idx1: int, idx2: int):
+    tmp = a[idx1]
+    a[idx1] = a[idx2]
+    a[idx2] = tmp
 
-myList = [9,2,-4,77]
+myList = [9,2,33,77,18,99, -4]
 
 quickSort(myList, 0, len(myList)-1)

@@ -1,15 +1,21 @@
 def quickSort(a: list, l: int, r: int):
+    """
+    Sorts an array using quicksort.
+    - a is the list.
+    - l is the left-most index.
+    - r is the right-most index.
+    Should output the array in nondecreasing (increasing???) order
+    """
     if (l < r):
         s = hoarePartition(a[l:r+1])
         quickSort(a, l, s-1)
         quickSort(a, s+1, r)
-    
     print(a)
 
 def hoarePartition(subA: list): 
     """
     Partitions the sublist.
-    subA: sub-list of the overall list. l = 0, r = n-1 of sublist.
+    - subA: sub-list of the overall list. l = 0, r = n-1 of sublist.
     """
 
     # Get the left-most item in the list

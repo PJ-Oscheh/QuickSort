@@ -8,7 +8,10 @@ def quickSort(a: list, l: int, r: int):
     """
     if (l < r):
         s = hoarePartition(a,l,r)
+        print("Pivot Point: ", s)
+        print("Call quicksort on l and s-1", l, s-1)
         quickSort(a, l, s-1)
+        print("Call Quicksort on s+1 and r", s+1, r)
         quickSort(a, s+1, r)
     print(a)
 
@@ -23,6 +26,11 @@ def hoarePartition(a: list, l:int, r:int):
 
     i = l+1 # Left-most element in the sublistlen(a)-1
     j = r # Right-most element in the sublist
+
+    print("P: ", p)
+    print("i: ", i )
+    print("j: ", j)
+    print("swap i and j")
     _swap(a,i,j)
 
     # while not x == repeat ... until x
@@ -32,9 +40,10 @@ def hoarePartition(a: list, l:int, r:int):
         while not (a[j] <= p):
             j -= 1
         _swap(a, i, j)
-        print(f"hoare: {a}")
     
+    print("Swap i and j back")
     _swap(a, i, j)
+    print("Swap l and j")
     _swap(a, l, j)
     return j
 

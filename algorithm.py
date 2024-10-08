@@ -44,5 +44,11 @@ def _swap(a: list, idx1: int, idx2: int):
     a[idx2] = tmp
 
 myList = [9,2,33,77,18,99, -4]
+listTwo = [1,2,3,4,5,6,2]
+listThree = [0,1,6,2,3,1,10]
+listFour = [9,8,7,6,5,4,3,2,1]
 
 quickSort(myList, 0, len(myList)-1)
+quickSort(listTwo, 0, len(listTwo) -1)
+quickSort(listThree, 0, len(listThree)- 1)
+quickSort(listFour, 0, len(listFour) - 1)
